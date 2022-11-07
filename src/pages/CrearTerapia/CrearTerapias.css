@@ -1,0 +1,14 @@
+.contenedor {
+    width: 80%;
+    max-width: 1200px;
+    margin: 9%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+#cont-cont:hover {
+    background-color: #F1F3FE;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    margin-inline: 2%;
+    transition: all 300ms ease;
+}
+

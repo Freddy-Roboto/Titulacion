@@ -1,0 +1,38 @@
+.nombre{
+    width: 60%;
+}
+
+.descripcion {
+    width: 60%;
+    max-height: 30%;
+    
+    
+}
+
+.lista{
+    width: 30%;
+   
+    
+}
+.texto-boton {
+    color: #6282FF;
+}
+
+.textarea  {
+    background:#E6E8F0;
+}
+.textarea2  {
+    background:#E6E8F0;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.popover {
+    --offset-y: -119px;
+}
+
+.texto-corto {
+    --width: 30%;
+    --height: 23%;
+
+}
