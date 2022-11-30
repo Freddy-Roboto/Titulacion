@@ -1,4 +1,4 @@
-import { IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonIcon, IonItem, IonMenu, IonMenuButton, IonMenuToggle, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonAvatar, IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonMenu, IonMenuButton, IonMenuToggle, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { useLocation, useParams } from 'react-router-dom';
 import ExploreContainer from '../../components/ExploreContainer';
 import temonet from '../images/img-temonet-logo-sf.png'
@@ -57,7 +57,15 @@ const CrearTerapia: React.FC = () => {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
+          <IonItem>
           <IonTitle><img src= {temonet} width='50' />Crear Terapia</IonTitle>
+          <IonItem>
+        <IonAvatar slot="start">
+          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </IonAvatar>
+        <IonLabel>Item Avatar</IonLabel>
+      </IonItem>
+          </IonItem>
         </IonToolbar>
       </IonHeader>
 

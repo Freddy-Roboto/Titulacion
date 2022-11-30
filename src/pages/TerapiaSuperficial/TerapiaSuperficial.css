@@ -36,3 +36,18 @@
     --height: 23%;
 
 }
+
+.modal-texto{
+    --height: 35%;
+    --width: 40%;
+}
+.texto-modal{
+    --height: 100%;
+}
+
+.textarea-modal {
+    --padding-top: 88px;
+}
+ion-popover{
+    --offset-y: -121px;
+}

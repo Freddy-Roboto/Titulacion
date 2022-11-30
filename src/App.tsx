@@ -82,6 +82,7 @@ const App: React.FC = () => {
             <Route path="/page/Reportes de Resultado">
               <ReportesdeResultado />
             </Route>
+
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>

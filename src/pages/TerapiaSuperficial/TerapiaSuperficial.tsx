@@ -1,4 +1,4 @@
-import { IonButton, IonButtons, IonCard, IonCol, IonContent, IonHeader, IonIcon, IonInput, IonItem, IonMenuButton, IonModal, IonPage, IonRow, IonTextarea, IonTitle, IonToolbar } from '@ionic/react';
+import { IonAvatar, IonButton, IonButtons, IonCard, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonList, IonMenuButton, IonModal, IonPage, IonPopover, IonRow, IonTextarea, IonTitle, IonToolbar } from '@ionic/react';
 import { close, pencil} from 'ionicons/icons';
 import { OverlayEventDetail } from '@ionic/react/dist/types/components/react-component-lib/interfaces';
 import { useEffect, useRef, useState } from 'react';
@@ -63,7 +63,15 @@ const TerapiaSuperficial: React.FC = () => {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
+          <IonItem>
           <IonTitle><img src= {temonet} width='50' />Crear Terapia Superficial</IonTitle>
+          <IonItem>
+        <IonAvatar slot="start">
+          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </IonAvatar>
+        <IonLabel>Item Avatar</IonLabel>
+      </IonItem>
+          </IonItem>
         </IonToolbar>
       </IonHeader>
 
@@ -74,7 +82,7 @@ const TerapiaSuperficial: React.FC = () => {
           </IonToolbar>
         </IonHeader>
 
-
+      <IonContent fullscreen>
         <ExploreContainer name={name}/>
           <div>
             <div className='nombre'>
@@ -83,14 +91,17 @@ const TerapiaSuperficial: React.FC = () => {
               </IonCard>
             </div>
             <div className='descripcion'>
-             <IonCard className='textarea'>
-              <IonTextarea className='textarea' placeholder="Breve descripcion de la terapia que estas creando." > </IonTextarea>
-             </IonCard>
+              <IonCard className='textarea'>
+                <IonTextarea className='textarea' placeholder="Breve descripcion de la terapia que estas creando." > </IonTextarea>
+              </IonCard>
             </div>
+            
           </div>
 
           <div>
              {clientes.map((cliente:any) =>
+             <IonCard>
+             <IonGrid>
               <IonRow>
                 <IonCol> {cliente.text} 
 
@@ -103,43 +114,102 @@ const TerapiaSuperficial: React.FC = () => {
                   </IonButton> 
                 </IonCol>
               </IonRow>
+              </IonGrid>
+              </IonCard>
 
                )}
               </div>
-
-       <IonContent>
+              
+       
         </IonContent>
       
       <IonItem className='botones'>
-        <div>
-        <IonItem>
-          <IonButton id="open-custom-dialog" expand="block">
-          Ingresar Texto
-          </IonButton>
-          <IonButton id="open-imagen-dialog" expand="block">
-          Ingresar Imagen
-          </IonButton>
+       
+          <IonItem>
+            <IonButton id="open-custom-dialog" expand="block">
+            Ingresar Texto
+            </IonButton>
+            <IonButton id="open-button-op" expand="block">
+            Imagen + opciones
+            </IonButton>
+            <IonButton id="open-button-check" expand="block">
+            Imagen + Check
+            </IonButton>
+            <IonButton id="open-button-guardar" expand="block">
+            Guardar
+            </IonButton>
           </IonItem>
-          <IonModal  id="example-modal" ref={modal} trigger="open-custom-dialog" >        
-            
-            <IonItem>
-              <IonTextarea onIonChange={e => customer.text = e.detail.value}  ></IonTextarea>
+          </IonItem>
+          
+          <IonPopover trigger="open-button-op" reference="trigger" side="top" alignment="center" dismissOnSelect={true}>
+        <IonContent  >
+          <IonList>
+            <IonItem  button={true} id="open-options-dialog">
+              
+              Imagen + 2 Opciones
             </IonItem>
-            <IonButton onClick={save}>Guardar</IonButton>
+            <IonItem button={true} detail={false}>
+              Imagen + 3 Opciones
+            </IonItem>
+          </IonList>
+          
+        </IonContent>
+      </IonPopover>
+     
+      <IonModal className='modal-texto'  id="example-modal" ref={modal2} trigger="open-options-dialog" >        
+            
+            
+            <IonToolbar>
+            <IonButton onClick={save} slot='end'>Guardar</IonButton>
             <IonButton onClick={dismiss} slot='end'>Cancelar</IonButton>
+            </IonToolbar>
+          </IonModal>
+     
+
+
+      <IonPopover trigger="open-button-check" reference="trigger" side="top" alignment="center" dismissOnSelect={true}>
+        <IonContent  >
+          <IonList>
+            <IonItem  button={true} detail={false}>
+            Imagen + 2 Opciones
+            </IonItem>
+            <IonItem button={true} detail={false}>
+            Imagen + 3 Opciones
+            </IonItem>
+          </IonList>
+        </IonContent>
+      </IonPopover>
+          
+          <IonModal className='modal-texto'   id="example-modal" ref={modal} trigger="open-custom-dialog" > 
+          
+          <IonHeader >
+          <IonItem >
+              <IonTextarea className='textarea-modal' onIonChange={e => customer.text = e.detail.value}  ></IonTextarea>
+            </IonItem>
+            </IonHeader>       
+            
+           
+            
+           
+              <IonToolbar>
+              
+            <IonButton onClick={save} slot='end'>Guardar</IonButton>
+            <IonButton onClick={dismiss} slot='end'>Cancelar</IonButton>
+            
+            </IonToolbar>
+           
+            
+           
+            
           </IonModal>
 
+          
+          
+
         
-          <IonModal  id="example-modal" ref={modal2} trigger="open-imagen-dialog" >        
-            
-            <IonItem>
-             {/*  <IonTextarea onIonChange={e => customer.text = e.detail.value}  ></IonTextarea> */}
-            </IonItem>
-            <IonButton onClick={save}>Guardar</IonButton>
-            <IonButton onClick={dismiss} slot='end'>Cancelar</IonButton>
-          </IonModal>
-       </div>
-       </IonItem>
+          
+         
+       
     </IonPage>
   );
 };
